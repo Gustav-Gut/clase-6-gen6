@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fir-ang6": {
+      "hosting": {
+        "routesAng6": [
+          "fir-ang6"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "routesAng6",
+      "public": "dist/routesAng6",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
