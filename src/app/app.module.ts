@@ -6,8 +6,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { CharactersComponent } from './components/characters/characters.component';
-import { CharacterComponent } from './components/character/character.component';
+import { PopupComponent } from './components/popup/popup.component';
+
+import { CharactersModule } from './characters/characters.module';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +23,16 @@ import { CharacterComponent } from './components/character/character.component';
     HomeComponent,
     FooterComponent,
     HeaderComponent,
-    CharactersComponent,
-    CharacterComponent
+    PopupComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    CharactersModule,
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

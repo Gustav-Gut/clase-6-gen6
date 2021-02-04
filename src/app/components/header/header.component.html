@@ -11,7 +11,13 @@
                 <a class="nav-link" [routerLink]="'home'">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item" [routerLinkActive]="'active'">
-                <a class="nav-link" [routerLink]="'characters'">Characters <span class="sr-only"></span></a>
+                <a class="nav-link" [routerLink]="'login'">Login<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="'active'">
+                <a class="nav-link" [routerLink]="'charactersList'">Characters List<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="'active'">
+                <a class="nav-link" [routerLink]="[{outlets: {popup:['popupAlert']}}]">PoopUp Alert<span class="sr-only"></span></a>
             </li>
         </ul>
     </div>
