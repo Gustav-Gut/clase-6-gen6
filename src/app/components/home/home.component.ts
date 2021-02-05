@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private firebaseS: FirebaseService
+  ) { }
 
   ngOnInit() {
+    this.firebaseS.currentUSer().then(resp => {
+      console.log('usuario actual -->', resp);
+    })
+    console.log('localstorage email -->', localStorage.getItem('email'));
   }
 
 }

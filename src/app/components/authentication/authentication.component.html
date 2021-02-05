@@ -8,7 +8,20 @@
             <div class="form-group">
                 <input type="password" class="form-control" placeholder="password" formControlName="pass">
             </div>
-            <button class="btn btn-primary btn-lg">Login</button>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger" >
+                <div *ngIf="email.errors.required">
+                    Requerido
+                </div>
+                <div *ngIf="email.errors.email">
+                    Formato Erroneo
+                </div>
+            </div>
+            <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="alert alert-danger" >
+                <div *ngIf="pass.errors.required">
+                    Requerido
+                </div>
+            </div>
+            <button [disabled]="loginForm.invalid" class="btn btn-primary btn-lg">Login</button>
         </form>
     </div>
 </div>

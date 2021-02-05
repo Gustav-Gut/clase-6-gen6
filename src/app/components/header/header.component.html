@@ -19,6 +19,9 @@
             <li class="nav-item" [routerLinkActive]="'active'">
                 <a class="nav-link" [routerLink]="[{outlets: {popup:['popupAlert']}}]">PoopUp Alert<span class="sr-only"></span></a>
             </li>
+            <li class="nav-item" [routerLinkActive]="'active'">
+                <a class="nav-link" (click)="toLogout()">Logout<span class="sr-only"></span></a>
+            </li>
         </ul>
     </div>
 </nav>
