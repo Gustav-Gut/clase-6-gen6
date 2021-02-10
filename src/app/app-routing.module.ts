@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { HomeComponent } from './components/home/home.component';
 import { PopupComponent } from './components/popup/popup.component';
+import { RegisterComponent } from './components/register/register.component';
 import { LoggedGuard } from './guards/logged.guard';
 
 const routes: Routes = [
-  {path:'popupAlert', component:PopupComponent, outlet:'popup'},
-  {path:'home', component:HomeComponent, canActivate: [LoggedGuard]},
-  {path:'login', component:AuthenticationComponent},
-  {path:'**', redirectTo:''}
+  { path: 'popupAlert', component: PopupComponent, outlet: 'popup' },
+  { path: 'home', component: HomeComponent, canActivate: [LoggedGuard] },
+  { path: 'login', component: AuthenticationComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

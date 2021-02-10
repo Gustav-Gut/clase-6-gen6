@@ -8,12 +8,14 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PopupComponent } from './components/popup/popup.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { RegisterComponent } from './components/register/register.component';
 
 import { CharactersModule } from './characters/characters.module';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -24,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HeaderComponent,
     PopupComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     ReactiveFormsModule
   ],
   providers: [],
