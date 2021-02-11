@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from '../interfaces/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
 
-  public querySnapshot: any;
+  public userBd: any;
 
   constructor(
     private fireStore: AngularFirestore
@@ -23,12 +24,20 @@ export class FirestoreService {
     }
   }
 
-  async getUser(uid: string): Promise<any> {
-    this.querySnapshot = await this.fireStore.firestore.collection('users').where('uid', '==', uid).get();
-    this.querySnapshot.forEach(async (resp: any): Promise<any> => {
-      const dataQuery = await resp.data();
-      console.log('data from bd -->', dataQuery);
-      return dataQuery;
-    })
+  getUser(uid: string): Observable<User> {
+    return new Observable(observer => {
+      this.fireStore.firestore.collection('users').where('uid', '==', uid).get().then(querySnapshot => {
+        querySnapshot.forEach(resp => {
+          this.userBd = resp.data();
+        })
+        observer.next(this.userBd);
+        observer.complete();
+      }).catch(error => {
+        console.log('error call service firestore -->', error);
+        observer.error(error);
+        observer.complete();
+      })
+    });
   }
+
 }
