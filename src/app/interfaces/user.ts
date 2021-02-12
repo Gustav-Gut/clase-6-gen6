@@ -1,7 +1,13 @@
 export interface User {
     email: string,
     name: string,
-    phoneNumber: string,
-    profile:string,
+    phoneNumber: [Phone],
+    profile: string,
+    newsletter: boolean,
     uid: string
+}
+
+interface Phone {
+    phone: string,
+    description: string
 }
