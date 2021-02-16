@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FirebaseService } from '../../services/firebase.service';
+import { passwordValidation } from '../../directives/validations/password.directive';
 
 @Component({
   selector: 'app-authentication',
@@ -14,7 +15,7 @@ export class AuthenticationComponent implements OnInit {
 
   public loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    pass: new FormControl('', [Validators.required])
+    pass: new FormControl('', [Validators.required, passwordValidation()])
   })
 
   constructor(

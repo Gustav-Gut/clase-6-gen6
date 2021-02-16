@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { PasswordDirective } from './directives/validations/password.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     PopupComponent,
     AuthenticationComponent,
-    RegisterComponent
+    RegisterComponent,
+    PasswordDirective
   ],
   imports: [
     BrowserModule,
