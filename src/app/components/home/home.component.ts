@@ -14,10 +14,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   public myUser: User = {
     email: '',
-    phoneNumber: '',
+    phoneNumber: {phone: '', description: ''},
     profile: '',
     name: '',
-    uid: ''
+    uid: '',
+    newsletter: false
   };
   public uid: string;
   private serviceSuscription: Subject<boolean> = new Subject();
@@ -44,7 +45,8 @@ export class HomeComponent implements OnInit, OnDestroy {
           phoneNumber: data.phoneNumber,
           profile: data.profile,
           name: data.name,
-          uid: data.uid
+          uid: data.uid,
+          newsletter: data.newsletter
         };
         console.log('myuser data -->', this.myUser);
       });

@@ -1,7 +1,7 @@
 export interface User {
     email: string,
     name: string,
-    phoneNumber: [Phone],
+    phoneNumber: Phone,
     profile: string,
     newsletter: boolean,
     uid: string

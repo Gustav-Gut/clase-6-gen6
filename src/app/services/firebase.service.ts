@@ -48,6 +48,7 @@ export class FirebaseService {
   async currentUSer() {
     try {
       const currentUSerResp = this.angularFireAuth.auth.currentUser;
+      console.log('currentUser service -->', currentUSerResp);
       return currentUSerResp;
     } catch (error) {
       console.log('error current user -->', error);
