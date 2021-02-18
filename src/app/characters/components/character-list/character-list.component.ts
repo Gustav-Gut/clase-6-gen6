@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Character } from 'src/app/interfaces/character';
 import { RickAndMortyService } from '../../../services/rick-and-morty.service';
 
 @Component({
@@ -8,12 +9,14 @@ import { RickAndMortyService } from '../../../services/rick-and-morty.service';
 })
 export class CharacterListComponent implements OnInit {
 
-  public allCharacters: any[] = [];
+  public allCharacters: Character[];
 
   constructor(
     private rickAndMortyS: RickAndMortyService
   ) {
-    this.allCharacters = rickAndMortyS.getAllCharacters();
+    rickAndMortyS.getAllCharacters().subscribe(respAllCharacters => {
+      this.allCharacters = respAllCharacters;
+    });
   }
 
   ngOnInit() {

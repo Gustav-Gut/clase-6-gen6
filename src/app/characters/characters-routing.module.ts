@@ -4,10 +4,16 @@ import { CharacterListComponent } from './components/character-list/character-li
 import { CharacterSingleComponent } from './components/character-single/character-single.component';
 
 const routes: Routes = [
-  {path: 'charactersList', component:CharacterListComponent,
-    children:[
-      {path: 'characterSingle/:id', component:CharacterSingleComponent},
-    ]}
+  {
+    path: '', children: [
+      {
+        path: 'charactersList', component: CharacterListComponent,
+        children: [
+          { path: 'characterSingle/:id', component: CharacterSingleComponent },
+        ]
+      }
+    ]
+  }
 ];
 
 @NgModule({

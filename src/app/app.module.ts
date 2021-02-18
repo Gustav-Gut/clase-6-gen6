@@ -10,8 +10,6 @@ import { PopupComponent } from './components/popup/popup.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { RegisterComponent } from './components/register/register.component';
 
-import { CharactersModule } from './characters/characters.module';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
@@ -19,6 +17,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { PasswordDirective } from './directives/validations/password.directive';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeaderInterceptorService } from './interceptors/header-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -33,14 +34,18 @@ import { PasswordDirective } from './directives/validations/password.directive';
   ],
   imports: [
     BrowserModule,
-    CharactersModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HeaderInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

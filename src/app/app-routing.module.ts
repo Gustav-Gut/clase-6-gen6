@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [LoggedGuard] },
   { path: 'login', component: AuthenticationComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'characters', loadChildren: () => import("./characters/characters.module").then(mod => mod.CharactersModule) },
   { path: '**', redirectTo: '' }
 ];
 
