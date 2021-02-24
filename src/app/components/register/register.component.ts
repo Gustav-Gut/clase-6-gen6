@@ -25,13 +25,12 @@ export class RegisterComponent implements OnInit {
     profile: new FormControl(''),
     phones: new FormArray([]),
     newsletter: new FormControl(false),
-    rut: new FormControl('', [Validators.required, RutValidator])
+    rut: new FormControl('', [Validators.required])
   })
 
   constructor(
     private firebaseService: FirebaseService,
-    private firestoreService: FirestoreService,
-    private rutValidator: RutValidator
+    private firestoreService: FirestoreService
   ) { }
 
   ngOnInit() {
