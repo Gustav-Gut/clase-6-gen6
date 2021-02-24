@@ -21,6 +21,11 @@ import { PasswordDirective } from './directives/validations/password.directive';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderInterceptorService } from './interceptors/header-interceptor.service';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SpinnerComponent } from './animations/spinner/spinner.component';
+
+import { Ng9RutModule } from 'ng9-rut';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +35,8 @@ import { HeaderInterceptorService } from './interceptors/header-interceptor.serv
     PopupComponent,
     AuthenticationComponent,
     RegisterComponent,
-    PasswordDirective
+    PasswordDirective,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,9 @@ import { HeaderInterceptorService } from './interceptors/header-interceptor.serv
     AngularFireAuthModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    Ng9RutModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

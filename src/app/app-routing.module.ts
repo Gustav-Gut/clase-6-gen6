@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'login', component: AuthenticationComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'characters', loadChildren: () => import("./characters/characters.module").then(mod => mod.CharactersModule) },
+  { path: '', component: AuthenticationComponent },
   { path: '**', redirectTo: '' }
 ];
 

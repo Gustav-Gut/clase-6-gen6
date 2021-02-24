@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { User } from 'src/app/interfaces/user';
 import { FirebaseService } from '../../services/firebase.service';
 import { FirestoreService } from '../../services/firestore.service';
+import { RutValidator } from 'ng9-rut';
 
 @Component({
   selector: 'app-register',
@@ -23,12 +24,14 @@ export class RegisterComponent implements OnInit {
     name: new FormControl(''),
     profile: new FormControl(''),
     phones: new FormArray([]),
-    newsletter: new FormControl(false)
+    newsletter: new FormControl(false),
+    rut: new FormControl('', [Validators.required, RutValidator])
   })
 
   constructor(
     private firebaseService: FirebaseService,
-    private firestoreService: FirestoreService
+    private firestoreService: FirestoreService,
+    private rutValidator: RutValidator
   ) { }
 
   ngOnInit() {
